@@ -1,0 +1,613 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<title>Atef Alwaheidi</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@700;800;900&family=Hanken+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: an engineering drawing sheet. Heavy ink frames, a title-block hero, and image plates that stay paper-white in both themes. */
+:root{
+  --bg:#E8EBEB;
+  --surface:#F4F6F6;
+  --ink:#12171A;
+  --muted:#46515A;
+  --rule:#B4BDC0;
+  --accent:#F0BE00;
+  --on-accent:#12171A;
+  --plate:#FFFFFF;
+  --f-display:'Big Shoulders Display','Arial Narrow',Impact,sans-serif;
+  --f-body:'Hanken Grotesk',system-ui,-apple-system,'Segoe UI',sans-serif;
+  --f-mono:'JetBrains Mono',ui-monospace,Menlo,Consolas,monospace;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#0E1214; --surface:#151A1D; --ink:#E9EEEE; --muted:#9BA8AC; --rule:#2B3438; --plate:#F1F4F4;
+    color-scheme:dark;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#0E1214; --surface:#151A1D; --ink:#E9EEEE; --muted:#9BA8AC; --rule:#2B3438; --plate:#F1F4F4;
+  color-scheme:dark;
+}
+
+*,*::before,*::after{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:400 16px/1.6 var(--f-body);-webkit-font-smoothing:antialiased}
+img{display:block;max-width:100%}
+a{color:var(--ink);text-underline-offset:3px}
+a:focus-visible,button:focus-visible{outline:3px solid var(--ink);outline-offset:3px}
+h1,h2,h3{margin:0;font-family:var(--f-display);font-weight:800;line-height:.95;text-transform:uppercase;text-wrap:balance}
+p{margin:0}
+.wrap{max-width:1180px;margin-inline:auto;padding-inline:clamp(16px,4vw,40px)}
+.mono{font-family:var(--f-mono);font-size:.74rem;letter-spacing:.08em;text-transform:uppercase}
+.muted{color:var(--muted)}
+
+/* top bar */
+.top{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:var(--bg);border-bottom:2px solid var(--ink)}
+.top .wrap{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:6px 24px;padding-block:10px}
+.brand{font-family:var(--f-display);font-weight:800;font-size:1.25rem;letter-spacing:.04em;text-transform:uppercase;text-decoration:none}
+.nav{display:flex;flex-wrap:wrap;gap:4px 18px}
+.nav a{font-family:var(--f-mono);font-size:.72rem;letter-spacing:.08em;text-transform:uppercase;text-decoration:none;color:var(--muted)}
+.nav a:hover{color:var(--ink);text-decoration:underline}
+
+/* hero */
+.hero{padding-block:clamp(28px,5vw,56px)}
+.hero-grid{display:grid;gap:clamp(28px,4vw,48px);grid-template-columns:minmax(0,1fr)}
+@media (min-width:960px){.hero-grid{grid-template-columns:minmax(0,1.05fr) minmax(0,1fr);align-items:center}}
+.hero h1{font-size:clamp(3.4rem,12vw,8.4rem);font-weight:900;letter-spacing:-.005em;margin-top:14px}
+.hero h1 span{display:block}
+.hl{display:inline-block;background:var(--accent);color:var(--on-accent);padding:.02em .12em .0em;margin-left:-.06em}
+.role{margin-top:20px;font-size:clamp(1.05rem,2.2vw,1.3rem);font-weight:600;max-width:34ch;line-height:1.35}
+.lede{margin-top:16px;color:var(--muted);max-width:56ch}
+.cta{display:flex;flex-wrap:wrap;gap:12px;margin-top:28px}
+.btn{display:inline-flex;align-items:center;min-height:44px;padding:0 20px;font-family:var(--f-mono);font-size:.76rem;letter-spacing:.08em;text-transform:uppercase;text-decoration:none;border:2px solid var(--ink);color:var(--ink);background:transparent;cursor:pointer}
+.btn.primary{background:var(--accent);color:var(--on-accent)}
+.btn:hover{background:var(--ink);color:var(--bg)}
+.btn.primary:hover{background:var(--ink);color:var(--accent)}
+.tint{display:flex;align-items:center;gap:12px;margin-top:34px}
+.tint-bar{display:flex;width:140px;height:8px;flex:none}
+.tint-bar i{flex:1}
+.tint-bar i:nth-child(1){background:#D8BC6E}
+.tint-bar i:nth-child(2){background:#C49A2C}
+.tint-bar i:nth-child(3){background:#8A5A2B}
+.tint-bar i:nth-child(4){background:#6A4A8E}
+.tint-bar i:nth-child(5){background:#2E5CA0}
+
+/* the sheet: framed image plus title block */
+.sheet{border:2px solid var(--ink);background:var(--surface)}
+.plate{background:var(--plate);border:0}
+.sheet .plate{aspect-ratio:1/1.02;display:flex}
+.sheet .plate img{width:100%;height:100%;object-fit:contain}
+.tb{display:grid;grid-template-columns:1fr 1fr;border-top:2px solid var(--ink)}
+.tb div{padding:9px 12px;border-right:1px solid var(--rule);border-bottom:1px solid var(--rule);min-width:0}
+.tb div:nth-child(2n){border-right:0}
+.tb div:nth-last-child(-n+2){border-bottom:0}
+.tb dt{font-family:var(--f-mono);font-size:.62rem;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+.tb dd{margin:2px 0 0;font-size:.88rem;font-weight:600;line-height:1.3;overflow-wrap:anywhere}
+@media (max-width:420px){.tb{grid-template-columns:1fr}.tb div{border-right:0}.tb div:nth-last-child(2){border-bottom:1px solid var(--rule)}}
+
+/* sections */
+section{border-top:2px solid var(--ink);padding-block:clamp(40px,6vw,72px)}
+.sec-head{display:grid;gap:12px;margin-bottom:clamp(24px,4vw,40px);max-width:70ch}
+.sec-head h2{font-size:clamp(2.2rem,6vw,3.8rem)}
+.sec-head p{color:var(--muted)}
+.eyebrow{display:inline-flex;align-items:center;gap:10px}
+.eyebrow::before{content:"";width:22px;height:10px;background:var(--accent);flex:none}
+
+/* figures */
+.fig{margin:0;display:flex;flex-direction:column;min-width:0}
+.fig .zoom{display:block;width:100%;padding:0;border:2px solid var(--ink);background:var(--plate);cursor:zoom-in;aspect-ratio:4/3}
+.fig .zoom img{width:100%;height:100%;object-fit:contain}
+.fig figcaption{margin-top:10px;font-size:.88rem;line-height:1.45;color:var(--muted)}
+.fig figcaption b{display:block;color:var(--ink);font-family:var(--f-mono);font-size:.7rem;letter-spacing:.08em;text-transform:uppercase;font-weight:500;margin-bottom:2px}
+.grid{display:grid;gap:clamp(18px,3vw,28px)}
+.g-3{grid-template-columns:repeat(auto-fit,minmax(min(100%,270px),1fr))}
+.g-4{grid-template-columns:repeat(auto-fit,minmax(min(100%,200px),1fr))}
+.wide .zoom{aspect-ratio:16/10}
+
+/* welding bench project */
+.split{display:grid;gap:clamp(24px,4vw,44px);grid-template-columns:minmax(0,1fr)}
+@media (min-width:960px){.split{grid-template-columns:minmax(0,.8fr) minmax(0,1.6fr);align-items:start}}
+.facts{border:2px solid var(--ink);background:var(--surface)}
+.facts div{display:grid;grid-template-columns:96px minmax(0,1fr);gap:12px;padding:11px 14px;border-bottom:1px solid var(--rule)}
+.facts div:last-child{border-bottom:0}
+.facts dt{font-family:var(--f-mono);font-size:.64rem;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);padding-top:3px}
+.facts dd{margin:0;font-size:.92rem;font-weight:500}
+.prose{display:grid;gap:14px;margin-bottom:20px;max-width:60ch}
+.prose p{color:var(--muted)}
+.prose p:first-child{color:var(--ink)}
+.viewer .zoom{aspect-ratio:16/10;display:block;width:100%;padding:0;border:2px solid var(--ink);background:var(--plate);cursor:zoom-in}
+.viewer .zoom img{width:100%;height:100%;object-fit:contain}
+.viewer .cap{margin-top:10px;min-height:2.9em;font-size:.92rem;color:var(--muted)}
+.thumbs{display:grid;gap:8px;grid-template-columns:repeat(auto-fill,minmax(78px,1fr));margin-top:14px}
+.thumb{padding:0;border:2px solid var(--rule);background:var(--plate);aspect-ratio:4/3;cursor:pointer}
+.thumb img{width:100%;height:100%;object-fit:contain}
+.thumb[aria-pressed="true"]{border-color:var(--ink);box-shadow:0 4px 0 var(--accent)}
+.thumb:hover{border-color:var(--ink)}
+
+/* analysis bars */
+.analysis-grid{display:grid;gap:clamp(24px,4vw,40px);grid-template-columns:minmax(0,1fr);margin-top:clamp(28px,4vw,44px)}
+@media (min-width:960px){.analysis-grid{grid-template-columns:minmax(0,1fr) minmax(0,1fr)}}
+.panel{border:2px solid var(--ink);background:var(--surface);padding:clamp(16px,3vw,24px);min-width:0}
+.panel h3{font-size:1.5rem;margin-bottom:6px}
+.panel > p{color:var(--muted);font-size:.92rem;margin-bottom:20px}
+.bars{display:grid;gap:22px}
+.bar-label{display:flex;flex-wrap:wrap;justify-content:space-between;gap:4px 16px;font-size:.9rem;font-weight:600;margin-bottom:8px}
+.bar-label span{font-family:var(--f-mono);font-size:.76rem;font-weight:500;color:var(--muted);font-variant-numeric:tabular-nums}
+.track{position:relative;height:22px;border:2px solid var(--ink);background:transparent}
+.fill{position:absolute;inset:0 auto 0 0;background:var(--accent)}
+.track-note{display:flex;justify-content:space-between;margin-top:6px;font-family:var(--f-mono);font-size:.64rem;letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}
+.read{display:grid;gap:10px;font-size:.92rem;color:var(--muted)}
+.read li{margin-left:1.1em}
+.read ul{margin:0;padding:0;display:grid;gap:8px}
+.read b{color:var(--ink);font-weight:600}
+
+/* components */
+.tag{display:inline-block;border:2px solid var(--ink);padding:4px 10px;margin-bottom:22px}
+
+/* experience */
+.tl{list-style:none;margin:0;padding:0;display:grid}
+.tl > li{display:grid;gap:8px 32px;grid-template-columns:minmax(0,1fr);padding-block:26px;border-top:1px solid var(--rule)}
+.tl > li:first-child{border-top:0;padding-top:0}
+@media (min-width:820px){.tl > li{grid-template-columns:200px minmax(0,1fr)}}
+.tl .when{font-family:var(--f-mono);font-size:.76rem;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);padding-top:6px}
+.tl h3{font-size:1.7rem;margin-bottom:4px}
+.tl .org{font-weight:600;margin-bottom:12px}
+.tl ul{margin:0;padding-left:1.1em;display:grid;gap:7px;color:var(--muted);max-width:68ch}
+
+/* skills */
+.skills{display:grid;gap:0;border:2px solid var(--ink);background:var(--surface);grid-template-columns:repeat(auto-fit,minmax(min(100%,260px),1fr))}
+.skills div{padding:18px 20px;border-right:1px solid var(--rule);border-bottom:1px solid var(--rule);min-width:0}
+.skills dt{font-family:var(--f-mono);font-size:.7rem;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-bottom:8px}
+.skills dd{margin:0;font-weight:500;line-height:1.5}
+
+/* learning */
+.learn{display:grid;gap:clamp(18px,3vw,28px);grid-template-columns:repeat(auto-fit,minmax(min(100%,280px),1fr))}
+.learn article{border-top:6px solid var(--accent);background:var(--surface);padding:20px;border-left:1px solid var(--rule);border-right:1px solid var(--rule);border-bottom:1px solid var(--rule)}
+.learn h3{font-size:1.6rem;margin-bottom:10px}
+.learn p{color:var(--muted);font-size:.95rem}
+.pub{margin-top:32px;max-width:72ch;font-size:.92rem;color:var(--muted)}
+.pub b{color:var(--ink);font-family:var(--f-mono);font-size:.7rem;letter-spacing:.1em;text-transform:uppercase;font-weight:500;display:block;margin-bottom:4px}
+
+/* contact */
+.contact{background:var(--ink);color:var(--bg);border-top:0}
+.contact .wrap{display:grid;gap:28px}
+.contact h2{font-size:clamp(2.6rem,9vw,6rem);font-weight:900}
+.contact h2 .hl{margin-left:0}
+.contact p{max-width:52ch;color:inherit;opacity:.85}
+.contact-rows{display:grid;gap:0;border-top:1px solid color-mix(in srgb,var(--bg) 35%,transparent)}
+.contact-rows div{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:8px 20px;padding:14px 0;border-bottom:1px solid color-mix(in srgb,var(--bg) 35%,transparent)}
+.contact-rows dt{font-family:var(--f-mono);font-size:.7rem;letter-spacing:.1em;text-transform:uppercase;opacity:.7;min-width:90px}
+.contact-rows dd{margin:0;font-size:1.1rem;font-weight:600;overflow-wrap:anywhere;flex:1}
+.contact a{color:inherit}
+.contact .btn{border-color:var(--bg);color:var(--bg)}
+.contact .btn:hover{background:var(--accent);color:var(--on-accent);border-color:var(--accent)}
+.contact a:focus-visible,.contact button:focus-visible{outline-color:var(--accent)}
+footer{padding-block:20px;border-top:0}
+footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:8px 24px}
+
+/* lightbox */
+#lb{position:fixed;inset:0;z-index:50;background:rgba(8,11,13,.88);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;padding:calc(16px + env(safe-area-inset-top,0px)) 16px calc(16px + env(safe-area-inset-bottom,0px))}
+#lb img{max-width:100%;max-height:78vh;background:var(--plate);border:2px solid #fff;object-fit:contain}
+#lb p{color:#E9EEEE;font-size:.92rem;text-align:center;max-width:70ch}
+#lb button{position:absolute;top:calc(12px + env(safe-area-inset-top,0px));right:12px;min-height:44px;padding:0 16px;font-family:var(--f-mono);font-size:.74rem;letter-spacing:.08em;text-transform:uppercase;background:var(--accent);color:var(--on-accent);border:2px solid var(--accent);cursor:pointer}
+
+@media (prefers-reduced-motion: reduce){*{transition:none!important;scroll-behavior:auto!important}}
+html{scroll-behavior:smooth;scroll-padding-top:70px}
+</style>
+
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="#top">Atef Alwaheidi</a>
+    <nav class="nav" aria-label="Sections">
+      <a href="#welding">Welding bench</a>
+      <a href="#analysis">Analysis</a>
+      <a href="#industry">Industry</a>
+      <a href="#models">Models</a>
+      <a href="#experience">Experience</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+<div class="hero">
+  <div class="wrap hero-grid">
+    <div>
+      <p class="mono eyebrow muted">Mechanical engineer · Cairo, Egypt</p>
+      <h1><span>Atef</span><span><span class="hl">Alwaheidi</span></span></h1>
+      <p class="role">Mechanical design, welding automation and industrial piping.</p>
+      <p class="lede">I design and build machines around the welding process. In 2026 I worked in a technical office and on site, turning contracts into BOQs, schedules and tested pipework. I am looking for a mechanical design, manufacturing or R&amp;D role where I keep learning, with additive manufacturing as the field I want to grow into.</p>
+      <div class="cta">
+        <a class="btn primary" href="#welding">See the work</a>
+        <a class="btn" href="#contact">Contact</a>
+      </div>
+      <div class="tint">
+        <div class="tint-bar" role="img" aria-label="Heat tint colours on stainless steel, from straw to blue"><i></i><i></i><i></i><i></i><i></i></div>
+        <span class="mono muted">Stainless heat tint, straw to blue</span>
+      </div>
+    </div>
+    <div class="sheet">
+      <div class="plate"><img src="img/bench-main.jpg" alt="SolidWorks model of a welding bench with X-shaped legs, a perforated table, a drive enclosure and lockable casters" width="1100" height="1060"></div>
+      <dl class="tb" style="margin:0">
+        <div><dt>Drawing</dt><dd>Welding bench, M.Sc. thesis</dd></div>
+        <div><dt>Education</dt><dd>M.Sc. Welding and Materials, 3rd in class</dd></div>
+        <div><dt>Tools</dt><dd>SolidWorks, ANSYS, AutoCAD Plant 3D</dd></div>
+        <div><dt>Languages</dt><dd>Arabic, English B2, French A2</dd></div>
+      </dl>
+    </div>
+  </div>
+</div>
+
+<section id="welding">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="mono eyebrow muted">Thesis project, 2025</p>
+      <h2>A welding bench that moves the torch for you</h2>
+    </div>
+    <div class="split">
+      <div>
+        <div class="prose">
+          <p>For my M.Sc. I designed and built a CNC welding bench with variable travel speed, aimed at raising productivity in small and medium manufacturers. It is built for hybrid TIG and MIG work.</p>
+          <p>Motion control and sensor integration run on Arduino. The models show the X-leg bench frame, the screw-driven gantry axes, the Z module, the drive enclosure with its controller and cooling, and the parts laid out before assembly.</p>
+        </div>
+        <dl class="facts" style="margin:0">
+          <div><dt>Process</dt><dd>Hybrid TIG-MIG</dd></div>
+          <div><dt>Motion</dt><dd>Variable-speed linear travel and a multi-axis gantry design</dd></div>
+          <div><dt>Control</dt><dd>Arduino with sensor integration</dd></div>
+          <div><dt>CAD</dt><dd>SolidWorks, with stress studies on the frame</dd></div>
+          <div><dt>Patent</dt><dd>Application filed with INAPI (Algeria). It was refused.</dd></div>
+        </dl>
+      </div>
+      <div class="viewer">
+        <button class="zoom" id="gmain" type="button" data-cap="Welding bench with X-leg frame, drive enclosure and a carrier over a perforated table, on lockable casters">
+          <img src="img/bench-main.jpg" alt="Welding bench with X-leg frame, drive enclosure and a carrier over a perforated table, on lockable casters" width="1100" height="1060">
+        </button>
+        <p class="cap" id="gcap">Welding bench with X-leg frame, drive enclosure and a carrier over a perforated table, on lockable casters</p>
+        <div class="thumbs" role="group" aria-label="Choose a view of the welding bench">
+          <button class="thumb" type="button" aria-pressed="true" data-src="img/bench-main.jpg" data-cap="Welding bench with X-leg frame, drive enclosure and a carrier over a perforated table, on lockable casters"><img src="img/bench-main.jpg" alt="Bench overview"></button>
+          <button class="thumb" type="button" aria-pressed="false" data-src="img/bench-enclosure.jpg" data-cap="Drive enclosure with motor controller and red, yellow and green status buttons, above the bench frame"><img src="img/bench-enclosure.jpg" alt="Drive enclosure"></button>
+          <button class="thumb" type="button" aria-pressed="false" data-src="img/gantry.jpg" data-cap="Gantry design with an operator display on a pedestal and a perforated work table"><img src="img/gantry.jpg" alt="Gantry design"></button>
+          <button class="thumb" type="button" aria-pressed="false" data-src="img/gantry-detail.jpg" data-cap="Gantry detail with screw-driven X and Y axes and a vertical Z carriage"><img src="img/gantry-detail.jpg" alt="Gantry detail"></button>
+          <button class="thumb" type="button" aria-pressed="false" data-src="img/z-axis.jpg" data-cap="Z-axis module with motor on top, a screw and a guided carriage inside a housing"><img src="img/z-axis.jpg" alt="Z-axis module"></button>
+          <button class="thumb" type="button" aria-pressed="false" data-src="img/linear-axis.jpg" data-cap="Single linear axis with screw, nut block and motor end"><img src="img/linear-axis.jpg" alt="Linear axis"></button>
+          <button class="thumb" type="button" aria-pressed="false" data-src="img/drive-sub.jpg" data-cap="Drive subassembly with gearing, adjustment knobs and a motor"><img src="img/drive-sub.jpg" alt="Drive subassembly"></button>
+          <button class="thumb" type="button" aria-pressed="false" data-src="img/drive-top.jpg" data-cap="Top view of the drive layout with gear train, coupling, motor and controller"><img src="img/drive-top.jpg" alt="Drive layout"></button>
+          <button class="thumb" type="button" aria-pressed="false" data-src="img/enclosure-frame.jpg" data-cap="Enclosure frame with cooling fan, controller and the gear housing visible"><img src="img/enclosure-frame.jpg" alt="Enclosure frame"></button>
+          <button class="thumb" type="button" aria-pressed="false" data-src="img/motor-enclosure.jpg" data-cap="Enclosure with hinged lid, ventilation fan, motor and controller"><img src="img/motor-enclosure.jpg" alt="Motor enclosure"></button>
+          <button class="thumb" type="button" aria-pressed="false" data-src="img/frame-parts.jpg" data-cap="Frame members laid out before assembly, with the caster base below"><img src="img/frame-parts.jpg" alt="Frame parts"></button>
+          <button class="thumb" type="button" aria-pressed="false" data-src="img/lamp-arm.jpg" data-cap="Articulated work-light arm that mounts to the bench"><img src="img/lamp-arm.jpg" alt="Work-light arm"></button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="analysis">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="mono eyebrow muted">Simulation</p>
+      <h2>Checking the structure before cutting steel</h2>
+      <p>I run static and nonlinear studies in SolidWorks Simulation and read the results against material yield. These are the studies from my own models.</p>
+    </div>
+    <div class="grid g-3">
+      <figure class="fig wide">
+        <button class="zoom" type="button" data-cap="Nonlinear stress study of the X-leg support assembly. Peak von Mises stress 63.9 MPa against 220.6 MPa yield strength."><img src="img/fea-xleg.jpg" alt="Nonlinear von Mises stress plot of the X-leg support assembly, peak 63.9 MPa, yield 220.6 MPa" width="900" height="462"></button>
+        <figcaption><b>Nonlinear study</b>X-leg support assembly. Peak von Mises stress is 63.9 MPa against a yield strength of 220.6 MPa.</figcaption>
+      </figure>
+      <figure class="fig wide">
+        <button class="zoom" type="button" data-cap="Three study setups compared side by side on one bracket model, with the same 620 MPa yield strength."><img src="img/fea-compare.jpg" alt="SolidWorks Simulation window comparing three stress studies of a bracket side by side" width="1920" height="1200"></button>
+        <figcaption><b>Study comparison</b>Three setups of one bracket model compared in a single window, to see how modelling choices change the stress result.</figcaption>
+      </figure>
+      <figure class="fig wide">
+        <button class="zoom" type="button" data-cap="Circular symmetry study of a gray cast iron part with a 500,000 N/m² pressure load. Peak von Mises stress about 10.2 MPa."><img src="img/fea-symmetry.jpg" alt="SolidWorks stress plot of a curved gray cast iron part using circular symmetry, peak about 10.2 MPa" width="1920" height="1200"></button>
+        <figcaption><b>Circular symmetry</b>Gray cast iron part under pressure load, modelled as a symmetric slice to keep the mesh small. Peak stress is about 10.2 MPa.</figcaption>
+      </figure>
+    </div>
+    <div class="analysis-grid">
+      <div class="panel">
+        <h3>How much of yield was used</h3>
+        <p>Peak von Mises stress divided by yield strength, from the solver results.</p>
+        <div class="bars">
+          <div>
+            <div class="bar-label">X-leg support, nonlinear <span>63.9 / 220.6 MPa · 29%</span></div>
+            <div class="track" role="img" aria-label="29 percent of yield strength used"><div class="fill" style="width:29%"></div></div>
+          </div>
+          <div>
+            <div class="bar-label">Reducer shaft, B.Sc. thesis <span>131 / 560 MPa · 23%</span></div>
+            <div class="track" role="img" aria-label="23 percent of yield strength used"><div class="fill" style="width:23%"></div></div>
+          </div>
+        </div>
+        <div class="track-note"><span>0</span><span>Track end is yield strength</span></div>
+      </div>
+      <div class="panel">
+        <h3>Reducer shaft, B.Sc. thesis 2023</h3>
+        <p>Intermediate shaft of a bevel-helical gear reducer, 200 kW at 1,500 rpm.</p>
+        <div class="read">
+          <ul>
+            <li>Gear forces resolved and bearing reactions calculated with the static torsor method.</li>
+            <li>Shaft modelled in 41Cr4 steel, three beam sections of 30, 30 and 40 mm.</li>
+            <li>Peak combined axial and bending stress was about <b>131 MPa</b> against a <b>560 MPa</b> yield strength, with a maximum deflection of <b>0.21 mm</b>.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="industry">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="mono eyebrow muted">Industrial work, 2026</p>
+      <h2>Piping, supports and plant layouts</h2>
+      <p>Models from my time in the technical office and on site. Client and project names are removed.</p>
+    </div>
+    <div class="grid g-3">
+      <figure class="fig">
+        <button class="zoom" type="button" data-cap="Piping run modelled in AutoCAD, isometric view, with an inline valve and several elevation changes"><img src="img/piping-iso.jpg" alt="AutoCAD isometric of a single pipe run with elevation changes and an inline valve" width="1212" height="701"></button>
+        <figcaption><b>Piping isometric</b>Single run with elevation changes and an inline valve, modelled in AutoCAD.</figcaption>
+      </figure>
+      <figure class="fig">
+        <button class="zoom" type="button" data-cap="Tank bund and pump skid layout, with a row of pipe-support piers leading away"><img src="img/pump-layout.jpg" alt="Layout of a pump bund, two storage tanks and a row of pier supports" width="850" height="683"></button>
+        <figcaption><b>Plant layout</b>Pump bund, two storage tanks and a row of pier supports along the pipe route.</figcaption>
+      </figure>
+      <figure class="fig">
+        <button class="zoom" type="button" data-cap="Two storage tanks and a pump set inside a bunded base, with corner posts"><img src="img/tank-bund.jpg" alt="Two storage tanks and a pump set inside a bunded base" width="1318" height="876"></button>
+        <figcaption><b>Tank bund</b>Two tanks and a pump set inside a bunded base.</figcaption>
+      </figure>
+    </div>
+    <p class="mono muted" style="margin:40px 0 18px">Steel supports and conveyor</p>
+    <div class="grid g-4">
+      <figure class="fig">
+        <button class="zoom" type="button" data-cap="Support frame of beams and columns for a deck"><img src="img/deck-frame.jpg" alt="Steel beam and column support frame" width="1281" height="598"></button>
+        <figcaption><b>Support frame</b>Beams and columns for a raised deck.</figcaption>
+      </figure>
+      <figure class="fig">
+        <button class="zoom" type="button" data-cap="Elevation of the sloped deck on steel columns"><img src="img/deck-elevation.jpg" alt="Elevation of a sloped deck on steel columns" width="1268" height="318"></button>
+        <figcaption><b>Elevation</b>Sloped deck on steel columns.</figcaption>
+      </figure>
+      <figure class="fig">
+        <button class="zoom" type="button" data-cap="End section of the deck and its two columns"><img src="img/deck-end.jpg" alt="End section of a deck on two columns" width="644" height="547"></button>
+        <figcaption><b>End section</b>Deck over two columns.</figcaption>
+      </figure>
+      <figure class="fig">
+        <button class="zoom" type="button" data-cap="Corner detail of the deck build-up over steel sections"><img src="img/deck-corner.jpg" alt="Corner detail of layered deck build-up over steel sections" width="1135" height="825"></button>
+        <figcaption><b>Build-up detail</b>Deck layers over steel sections.</figcaption>
+      </figure>
+      <figure class="fig">
+        <button class="zoom" type="button" data-cap="Column to deck connection detail"><img src="img/deck-column.jpg" alt="Column to deck connection detail" width="530" height="766"></button>
+        <figcaption><b>Connection</b>Column meeting the deck underside.</figcaption>
+      </figure>
+      <figure class="fig">
+        <button class="zoom" type="button" data-cap="Belt conveyor frame model with rollers and a braced stand"><img src="img/conveyor.jpg" alt="Belt conveyor on a braced steel stand" width="844" height="430"></button>
+        <figcaption><b>Belt conveyor</b>Rollers, side rails and a braced stand.</figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<section id="models">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="mono eyebrow muted">Modelling</p>
+      <h2>Components and sub-assemblies</h2>
+      <p>Parts I modelled to practise mechanisms and to complete assemblies such as the welding bench.</p>
+    </div>
+    <div class="grid g-4">
+      <figure class="fig">
+        <button class="zoom" type="button" data-cap="Drill vise assembly with jaws, lead screw and a handle with ball ends"><img src="img/vise.jpg" alt="Drill vise assembly with lead screw and ball-end handle" width="1375" height="823"></button>
+        <figcaption><b>Drill vise</b>Jaws, lead screw and handle.</figcaption>
+      </figure>
+      <figure class="fig">
+        <button class="zoom" type="button" data-cap="Articulated work-light arm"><img src="img/lamp-arm.jpg" alt="Articulated work-light arm on a base" width="855" height="787"></button>
+        <figcaption><b>Light arm</b>Three-joint arm with a lamp head.</figcaption>
+      </figure>
+      <figure class="fig">
+        <button class="zoom" type="button" data-cap="Finned electric motor with terminal box and keyed shaft"><img src="img/motor.jpg" alt="Finned electric motor with terminal box" width="1376" height="867"></button>
+        <figcaption><b>Motor</b>Finned housing, terminal box, keyed shaft.</figcaption>
+      </figure>
+      <figure class="fig">
+        <button class="zoom" type="button" data-cap="Axial cooling fan with seven blades"><img src="img/fan.jpg" alt="Axial cooling fan with seven blades in a square frame" width="1105" height="880"></button>
+        <figcaption><b>Cooling fan</b>Seven blades in a square frame.</figcaption>
+      </figure>
+      <figure class="fig">
+        <button class="zoom" type="button" data-cap="Caster base frame with four swivel casters, two with brakes"><img src="img/caster-base.jpg" alt="Rectangular frame on four swivel casters" width="1316" height="788"></button>
+        <figcaption><b>Caster base</b>Rectangular frame on four casters.</figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<section id="experience">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="mono eyebrow muted">Experience and education</p>
+      <h2>Where the work happened</h2>
+    </div>
+    <ol class="tl">
+      <li>
+        <div class="when">Apr 2026 to Sep 2026</div>
+        <div>
+          <h3>Mechanical technical office and piping site engineer</h3>
+          <p class="org">El Watad Constructions, Cairo</p>
+          <ul>
+            <li>Reviewed contracts, scopes and supplier offers before project start, then prepared technical studies, BOQs, material take-offs, execution plans and work schedules.</li>
+            <li>Prepared technical and commercial bid comparisons and verified supplier mill test certificates.</li>
+            <li>Modelled piping runs, isometrics and tie-ins in AutoCAD Plant 3D and AutoCAD for refinery utility lines and industrial safety shower networks.</li>
+            <li>Wrote a method statement and BOQ for a stainless steel (SS 304, Sch 10) compressed air network.</li>
+            <li>Supervised fabrication and erection in carbon steel, stainless steel and plastic to ASME B31.3, and checked fit-up and root passes against approved WPS.</li>
+            <li>Prepared hydrotest packages and test boundaries, coordinated NDT (PT, RT) and followed punch-list closeout.</li>
+          </ul>
+        </div>
+      </li>
+      <li>
+        <div class="when">Oct 2025</div>
+        <div>
+          <h3>M.Sc. Mechanical Engineering, Assembly by Welding and Materials</h3>
+          <p class="org">Abou Bekr Belkaid University, Tlemcen. Ranked 3rd in class.</p>
+          <ul>
+            <li>Focus on the finite element method, metallurgy, thermal treatment and chemical treatment.</li>
+          </ul>
+        </div>
+      </li>
+      <li>
+        <div class="when">Jan 2025 to Feb 2025</div>
+        <div>
+          <h3>Mechanical engineering intern</h3>
+          <p class="org">EPA CMA (ex Kherbouch Group), Tlemcen</p>
+          <ul>
+            <li>Studied manufacturing workflows and structural assemblies for agricultural machinery such as pick-up machines, seeders and potato harvesters.</li>
+            <li>Evaluated TIG and MIG welding parameters, joint setups and weld integrity on heavy structural frames.</li>
+            <li>Developed 3D components, assemblies and shop drawings in SolidWorks.</li>
+            <li>Designed, fabricated and assembled a multi-tier welding table, including sheet cutting, press-brake bending and welded assembly.</li>
+          </ul>
+        </div>
+      </li>
+      <li>
+        <div class="when">Jan 2024 to Feb 2024</div>
+        <div>
+          <h3>Mechanical engineering intern</h3>
+          <p class="org">EPE SOREMEP Spa, Tlemcen</p>
+          <ul>
+            <li>Supported production of sheet-metal enclosures, industrial lockers and electronic housings.</li>
+            <li>Monitored forming and joining on resistance spot welding machines, hydraulic shears and bending machines.</li>
+          </ul>
+        </div>
+      </li>
+      <li>
+        <div class="when">Jul 2023</div>
+        <div>
+          <h3>B.Sc. Mechanical Engineering</h3>
+          <p class="org">Echahid Cheikh Larbi Tebessi University, Tebessa. Second-class honours, ranked 2nd in class.</p>
+          <ul>
+            <li>Focus on strength of materials, fluid mechanics, CAD and internal combustion.</li>
+          </ul>
+        </div>
+      </li>
+    </ol>
+  </div>
+</section>
+
+<section id="skills">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="mono eyebrow muted">Toolbox</p>
+      <h2>Skills</h2>
+    </div>
+    <dl class="skills" style="margin:0">
+      <div><dt>Design and analysis</dt><dd>SolidWorks, AutoCAD, ANSYS Fluent, FEA and FEM, MATLAB, Origin, Arduino</dd></div>
+      <div><dt>Welding and QA/QC</dt><dd>WPS and PQR, TIG, MIG, resistance spot welding, NDT coordination (PT, RT, UT), dissimilar metal joining, metallurgy</dd></div>
+      <div><dt>Piping and plant</dt><dd>AutoCAD Plant 3D, isometrics and spools, weld mapping, tie-in verification, hydrotest packages, BOQ, material take-off</dd></div>
+      <div><dt>Codes and standards</dt><dd>ASME B31.3, ASME Section IX, API 1104, SSPC surface preparation</dd></div>
+      <div><dt>Documentation</dt><dd>Microsoft Office, bilingual Arabic and English technical documents</dd></div>
+    </dl>
+  </div>
+</section>
+
+<section id="learning">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="mono eyebrow muted">Direction</p>
+      <h2>What I am learning next</h2>
+      <p>Each project started from the one before it. These are the three threads I want to follow.</p>
+    </div>
+    <div class="learn">
+      <article>
+        <h3>Additive manufacturing</h3>
+        <p>I want to move into it through wire-arc processes, where my welding background carries over. Parameters, heat input and joint quality are already familiar ground.</p>
+      </article>
+      <article>
+        <h3>Simulation depth</h3>
+        <p>I run nonlinear studies as well as static ones, as in the X-leg support above. I want to keep widening the range of problems I can model with confidence.</p>
+      </article>
+      <article>
+        <h3>Welding automation</h3>
+        <p>My bench controls motion and speed. The next layer is sensing, so the process responds to the joint instead of following a fixed path.</p>
+      </article>
+    </div>
+    <p class="pub"><b>Publication</b>Sulimieh, I., Alwaheidi, A., and Embarek, N. (2024). Numerical Study of Natural Convection in a Square Cavity Filled with Water. Proceedings of ICSIS 2024, Konya, Turkey, pp. 377 to 381.</p>
+  </div>
+</section>
+
+<section class="contact" id="contact">
+  <div class="wrap">
+    <h2>Let's talk about <span class="hl">your next build</span></h2>
+    <p>I am open to mechanical design, manufacturing and R&amp;D roles, and to research positions. Send me a message and I will reply.</p>
+    <dl class="contact-rows" style="margin:0">
+      <div><dt>Email</dt><dd id="email">atefalwaheidi@gmail.com</dd><button class="btn" id="copy" type="button">Copy email</button></div>
+      <div><dt>Phone</dt><dd>+20 109 698 8708</dd></div>
+      <div><dt>LinkedIn</dt><dd><a href="https://linkedin.com/in/atef-alwaheidi-21b301316" target="_blank" rel="noopener">linkedin.com/in/atef-alwaheidi-21b301316</a></dd></div>
+    </dl>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap mono muted"><span>Atef Alwaheidi · Mechanical engineer</span><span>Rev. 10/2026</span></div>
+</footer>
+
+<div id="lb" hidden role="dialog" aria-modal="true" aria-label="Enlarged image">
+  <button type="button" class="lb-close">Close</button>
+  <img alt="">
+  <p></p>
+</div>
+
+<script>
+(function(){
+  var lb=document.getElementById('lb');
+  var lbi=lb.querySelector('img');
+  var lbc=lb.querySelector('p');
+  var lbb=lb.querySelector('button');
+  var lastFocus=null;
+  function openLb(src,alt,cap){
+    lastFocus=document.activeElement;
+    lbi.src=src; lbi.alt=alt; lbc.textContent=cap||alt;
+    lb.hidden=false; lbb.focus();
+  }
+  function closeLb(){
+    lb.hidden=true; lbi.removeAttribute('src');
+    if(lastFocus&&lastFocus.focus){lastFocus.focus();}
+  }
+  document.addEventListener('click',function(e){
+    var z=e.target.closest('.zoom');
+    if(z){
+      var im=z.querySelector('img');
+      openLb(im.currentSrc||im.src,im.alt,z.getAttribute('data-cap'));
+      return;
+    }
+    if(!lb.hidden&&(e.target===lb||e.target.closest('.lb-close'))){closeLb();}
+  });
+  document.addEventListener('keydown',function(e){
+    if(e.key==='Escape'&&!lb.hidden){closeLb();}
+  });
+
+  var main=document.getElementById('gmain');
+  var mimg=main.querySelector('img');
+  var cap=document.getElementById('gcap');
+  var thumbs=document.querySelectorAll('.thumb');
+  thumbs.forEach(function(b){
+    b.addEventListener('click',function(){
+      var c=b.getAttribute('data-cap');
+      mimg.src=b.getAttribute('data-src');
+      mimg.alt=c;
+      main.setAttribute('data-cap',c);
+      cap.textContent=c;
+      thumbs.forEach(function(o){o.setAttribute('aria-pressed',o===b?'true':'false');});
+    });
+  });
+
+  var cb=document.getElementById('copy');
+  cb.addEventListener('click',function(){
+    var el=document.getElementById('email');
+    function fallback(){
+      var r=document.createRange(); r.selectNodeContents(el);
+      var s=window.getSelection(); s.removeAllRanges(); s.addRange(r);
+      cb.textContent='Select and copy';
+    }
+    try{
+      navigator.clipboard.writeText(el.textContent).then(function(){cb.textContent='Copied';},fallback);
+    }catch(err){fallback();}
+    setTimeout(function(){cb.textContent='Copy email';},2000);
+  });
+})();
+</script>
+
+</body></html>
